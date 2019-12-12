@@ -1,0 +1,32 @@
+﻿Note de cadrage
+
+12/12/2019
+
+
+- Projet Micro pousse
+
+- Projet mené par un groupe de développeur data dans le cadre d’une gestion de données au sein de l’entreprise des paysan urbain
+
+Ce projet à pour but de gérer les données du paysan urbain pour sa vente des micro pousse aux particuliers notamment les restaurants: un des client majoritaire, Les Jardins du cloître
+
+Les enjeux pour le paysan urbain serait d’avoir plus de financement d’entreprise, et avoir plus de partenariats, pour éventuellement avoir une opportunité de basculer dans la grande distribution 
+
+Les contraintes relèverai d’un problème au niveau du transports des micro pousse, cependant plusieurs points de livraisons ont était installé en région 
+
+Les Objectifs
+
+Réaliser le modèle conceptuelle de données 
+
+Réaliser le modèle physique et modèle logique
+
+Transformation des entités en tables 
+
+
+Misssion  
+
+Optimisation des ressources de l’entreprise par la collecte et les analyse de ses données disponibles
+
+
+Jalons
+
+18/12/2019!! 
