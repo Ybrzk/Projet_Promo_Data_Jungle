@@ -1,0 +1,9 @@
+from sqlalchemy import create_engine
+from sqlalchemy import create_engine
+import pandas as pd
+
+engine = create_engine("mysql+pymysql://misterheinz:simplon@localhost/siren_open_data")
+
+yacine = input("Entrez un code postale: ")
+df = pd.read_sql_query("SELECT Libellé, count(siret) as nombre_etablissement FROM etablissement_marseille JOIN liste_2008_nv5 ON etablissement_marseille.activitePrincipaleEtablissement = liste_2008_nv5.NIV5 AND codePostalEtablissement = '%s' AND nomenclatureActivitePrincipaleEtablissement ='NAFRev2' AND etatAdministratifEtablissement = 'A' JOIN liste_2008_nv1 ON liste_2008_nv5.NIV1 = liste_2008_nv1.Code GROUP BY Libellé UNION SELECT Libellé, count(siret) as nombre_etablissement FROM etablissement_marseille JOIN liste_2003_nv5 ON etablissement_marseille.activitePrincipaleEtablissement = liste_2003_nv5.N_700 AND codePostalEtablissement = '%s' AND nomenclatureActivitePrincipaleEtablissement = 'NAFRev1' AND etatAdministratifEtablissement = 'F' JOIN liste_2003_nv1 ON liste_2003_nv5.N_17 = liste_2003_nv1.Code GROUP BY Libellé UNION SELECT Libellé, count(siret) as nombre_etablissement FROM etablissement_marseille JOIN liste_1993_nv5 ON etablissement_marseille.activitePrincipaleEtablissement = liste_1993_nv5.N_700 AND codePostalEtablissement = '%s' AND nomenclatureActivitePrincipaleEtablissement = 'NAFRev1' AND etatAdministratifEtablissement = 'F' JOIN liste_1993_nv1 ON liste_1993_nv5.N_17 = liste_1993_nv1.Code GROUP BY Libellé UNION SELECT LIB_NAP40, count(siret) as nombre_etablissement FROM etablissement_marseille JOIN liste_1973_1993 ON etablissement_marseille.activitePrincipaleEtablissement = liste_1973_1993.NAP600 AND codePostalEtablissement = '%s' AND nomenclatureActivitePrincipaleEtablissement = 'NAP' AND etatAdministratifEtablissement = 'F' GROUP BY LIB_NAP40, codeCommune2Etablissement ORDER BY nombre_etablissement LIMIT 10;" %(yacine, yacine, yacine, yacine), con = engine)
+print(df)
